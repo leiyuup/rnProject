@@ -4,14 +4,14 @@ import {
     Text
 } from 'react-native';
 
-class DetailPage extends React.Component{
+class FavoritePage extends React.Component{
     render(){
         return (
             <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-                <Text>DetailPage</Text>
+                <Text>FavoritePage</Text>
             </View>
         )
     }
 }
 
-export default DetailPage;
+export default FavoritePage;
