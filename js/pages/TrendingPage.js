@@ -4,6 +4,8 @@ import {
     Text,
     Button
 } from 'react-native';
+import {connect} from 'react-redux';
+import actions from '../action';
 
 class TrendingPage extends React.Component{
     render(){
@@ -12,14 +14,17 @@ class TrendingPage extends React.Component{
             <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
                 <Text>TrendingPage</Text>
                 <Button
-                    title={'改变主题色-红'}
+                    title={'改变主题色-紫'}
+                    // onPress={()=>{
+                    //     navigation.setParams({
+                    //         theme: {
+                    //             tintColor: 'red',
+                    //             updateTime: new Date().getTime()
+                    //         }
+                    //     })
+                    // }}
                     onPress={()=>{
-                        navigation.setParams({
-                            theme: {
-                                tintColor: 'red',
-                                updateTime: new Date().getTime()
-                            }
-                        })
+                        this.props.onThemeChange('#aaf')
                     }}
                 />
             </View>
@@ -27,4 +32,24 @@ class TrendingPage extends React.Component{
     }
 }
 
-export default TrendingPage;
+
+const mapStateToProps= state=>({});
+
+const mapDispatchToProps=dispatch=>({
+    onThemeChange:theme=>{dispatch(actions.onThemeChange(theme));}
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(TrendingPage);
+
+
+
+
+
+
+
+
+
+
+
+
+
