@@ -96,11 +96,11 @@ class TabBarComponent extends React.Component {
 //currentTheme当期的主题色，相当于转运站
 let currentTheme;
 
-const BottomTabNavigator=createBottomTabNavigator(TABS,{
+const BottomTabNavigator=createAppContainer(createBottomTabNavigator(TABS,{
     tabBarComponent: props => (
         <TabBarComponent theme={currentTheme} {...props} />
     ),
-});
+}));
 
 class DynamicTabNavigator extends React.Component{
     static router=BottomTabNavigator.router;
