@@ -5,7 +5,7 @@ import PopularPage from './../pages/PopularPage';
 import TrendingPage from './../pages/TrendingPage';
 import FavoritePage from './../pages/FavoritePage';
 import MyPage from './../pages/MyPage';
-import  MaterialIcons  from 'react-native-vector-icons/MaterialIcons';
+import MaterialIcons  from 'react-native-vector-icons/MaterialIcons';
 import FeatherIcons from 'react-native-vector-icons/Feather';
 import EntypoIcons from 'react-native-vector-icons/Entypo';
 import {connect} from "react-redux";

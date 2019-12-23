@@ -7,16 +7,16 @@ import NavigationUtil from '../navigator/NavigationUtil';
 
 class WelcomePage extends React.Component{
     state={
-        remainingTime:5
-    }
+        remainingTime:3
+    };
 
     componentDidMount(){
         const {navigation} = this.props;
-        NavigationUtil.navigation=navigation;
+        NavigationUtil.navigation=navigation;//存this.props.navigation
         this.timer=setTimeout(()=>{
             //关闭欢迎页
             NavigationUtil.navigateToHome({navigation});
-        },5000);
+        },this.state.remainingTime*1000);
 
         this.timerInterval=setInterval(()=>{
             this.setState({
