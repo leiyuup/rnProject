@@ -40,7 +40,8 @@ const styles=StyleSheet.create({
         backgroundColor:ThemeColor
     },
     container:{
-        backgroundColor:ThemeColor
+        backgroundColor:ThemeColor,
+        width:'100%'
     },
     title:{
         fontSize:20,

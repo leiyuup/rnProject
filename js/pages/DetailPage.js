@@ -20,7 +20,6 @@ class DetailPage extends React.Component{
         const {projectModel}=this.params;
         this.url=projectModel.html_url || TRENDING_URL+projectModel.fullName;
         const title=projectModel.full_name || projectModel.fullName;
-        console.warn('23',title,this.url);
         this.state={
             title:title,
             url:this.url,
@@ -36,11 +35,12 @@ class DetailPage extends React.Component{
     }
     renderRightButton(){
         return (
-            <View style={{flexDirection:'row'}}>
+            <View >
                 <TouchableOpacity
                     onPress={()=>{
 
                     }}
+                    style={{flexDirection:'row',alignItems:'center'}}
                 >
                     <FontAwesome
                         name={'star-o'}
@@ -53,7 +53,6 @@ class DetailPage extends React.Component{
         )
     }
     onNavigationStateChange(navState){
-        console.warn('onNavigationStateChange',navState);
         this.setState({
             canGoBack:navState.canGoBack,
             url:navState.url
@@ -65,22 +64,22 @@ class DetailPage extends React.Component{
             backgroundColor:'#aaf',
             barStyle:'light-content'
         };
-        console.warn('反反复复飞飞飞',this.state.title);
-        let navigationBar=<NavigationBar
-            title={this.state.title}
-            leftButton={ViewUtil.getLeftBackButton(()=>this.onBack())}
-            rightButton={this.renderRightButton()}
-            statusBar={statusBar}
-            style={{backgroundColor:'#aff'}}
-        />;
+        console.warn('this.state.url',this.state.url)
         return (
             <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-                ｛navigationBar｝
+                <NavigationBar
+                    title={this.state.title}
+                    leftButton={ViewUtil.getLeftBackButton(()=>this.onBack())}
+                    rightButton={this.renderRightButton()}
+                    statusBar={statusBar}
+                    style={{backgroundColor:'#afa'}}
+                />
                 <WebView
                     ref={webView=>this.webView=webView}
                     startInLoadingState={true}
                     onNavigationStateChange={e=>this.onNavigationStateChange(e)}
-                    source={{uri:this.state.url}}
+                    source={{uri:'https://www.baidu.com/'}}
+                    style={{backgroundColor:"#faa",height:100,width:100}}
                 />
             </View>
         )
